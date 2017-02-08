@@ -111,7 +111,7 @@ function bpeo_get_group_events( $group_id, $args = array() ) {
  * @return array Array of group IDs.
  */
 function bpeo_get_event_groups( $event_id ) {
-	$group_terms = wp_get_object_terms( $event_id, 'bpeo_event_group' );
+	$group_terms = wpmn_get_object_terms( $event_id, 'bpeo_event_group' );
 	$group_term_names = wp_list_pluck( $group_terms, 'name' );
 
 	$group_ids = array();
