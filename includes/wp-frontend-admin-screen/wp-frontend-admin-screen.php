@@ -444,7 +444,9 @@ class WP_Frontend_Admin_Screen {
 		//wp_enqueue_script( 'autosave' );
 
 		// yay, different WP versions!
-		if ( version_compare( $wp_version, '4.1.999') >= 0 ) {
+		if ( version_compare( $wp_version, '4.6.999') >= 0 ) {
+			wp_enqueue_script( 'tags-box', admin_url( "js/tags-box$suffix.js" ), array( 'jquery', 'tags-suggest' ), false, 1 );
+		} else if ( version_compare( $wp_version, '4.1.999') >= 0 ) {
 			wp_enqueue_script( 'tags-box', admin_url( "js/tags-box$suffix.js" ), array( 'jquery', 'suggest' ), false, 1 );
 		}
 
