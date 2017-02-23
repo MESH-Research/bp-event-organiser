@@ -473,7 +473,7 @@ function post_tags_meta_box( $post, $box ) {
 	<div class="tagchecklist"></div>
 </div>
 <?php if ( $user_can_assign_terms ) : ?>
-<p class="hide-if-no-js"><a href="javascript:return false" class="tagcloud-link" id="link-<?php echo $tax_name; ?>"><?php echo $taxonomy->labels->choose_from_most_used; ?></a></p>
+<p class="hide-if-no-js"><a href="javascript:;" class="tagcloud-link" id="link-<?php echo $tax_name; ?>"><?php echo $taxonomy->labels->choose_from_most_used; ?></a></p>
 <?php endif; ?>
 <?php
 }
