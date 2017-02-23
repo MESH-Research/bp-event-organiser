@@ -445,7 +445,15 @@ class WP_Frontend_Admin_Screen {
 
 		// yay, different WP versions!
 		if ( version_compare( $wp_version, '4.6.999') >= 0 ) {
-			wp_enqueue_script( 'tags-box', admin_url( "js/tags-box$suffix.js" ), array( 'jquery', 'tags-suggest' ), false, 1 );
+			wp_enqueue_script( 'tags-box', admin_url("js/tags-box$suffix.js"), array( 'jquery', 'tags-suggest' ), false, 1 );
+			wp_enqueue_script( 'tags-suggest', admin_url("js/tags-suggest$suffix.js"), array( 'jquery-ui-autocomplete', 'wp-a11y' ), false, 1 );
+			wp_localize_script( 'tags-suggest', 'tagsSuggestL10n', array(
+				'tagDelimiter' => _x( ',', 'tag delimiter' ),
+				'removeTerm'   => __( 'Remove term:' ),
+				'termSelected' => __( 'Term selected.' ),
+				'termAdded'    => __( 'Term added.' ),
+				'termRemoved'  => __( 'Term removed.' ),
+			) );
 		} else if ( version_compare( $wp_version, '4.1.999') >= 0 ) {
 			wp_enqueue_script( 'tags-box', admin_url( "js/tags-box$suffix.js" ), array( 'jquery', 'suggest' ), false, 1 );
 		}
